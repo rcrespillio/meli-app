@@ -2,8 +2,6 @@ import * as express from 'express';
 import axios from 'axios';
 import { appAuthor } from '../resources/author';
 import { recursiveCategoriesExtraction } from './helpers';
-import fixedEndpoints from './../fixedEndpoints';
-
 
 const itemsEndpoint = express();
 
