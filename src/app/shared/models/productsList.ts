@@ -3,7 +3,7 @@ import Author from './author';
 export default interface ProductsList {
   author: Author;
   categories: string[];
-  items: Product[]
+  items: Product[];
 }
 
 export interface ProductList {

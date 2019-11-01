@@ -16,29 +16,17 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private productsService: ProductsService, private router: Router) { }
 
   ngOnInit() {
-    const id = this.activatedRoute.snapshot.paramMap.get("id");
-    if(id){
-      this.getProduct(id);
-    }
+    const data = this.activatedRoute.snapshot.data['product'];
+    this.setProduct(data);
   }
 
   ngOnDestroy(){
     this.subscriptions.forEach( sub => sub.unsubscribe());
   }
 
-  getProduct(id: string){
-    this.subscriptions = [
-      ...this.subscriptions,
-      this.productsService.getProduct(id).subscribe(
-        (data: ProductList) => {
-          this.product = data.item;
-          this.breadcrumb = data.item.categories.join(' > ');
-        },
-        (error) => {
-
-        }
-      )
-    ]
+  setProduct(data: ProductList){
+    this.product = data.item;
+    this.breadcrumb = data.item.categories.join(' > ');
   }
 
   goToProduct(id: string){
