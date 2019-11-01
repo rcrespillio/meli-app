@@ -13,8 +13,7 @@
     "buildnserve": "npm run build:ssr && npm run serve:ssr",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run mercado-libre-app:server:production --bundleDependencies all",
-    "live-build-server": "tsc -w -p server.ts --outDir servdist",
-    "serve-server": "npm run build && cp -r dist servdist/ &&ts-node-dev --fast --respawn servdist/server"
+    "live-build-server": "tsc -w -p server.ts --outDir servdist | sleep 10 | ts-node-dev --fast --respawn servdist/server serverOnly",
   },
   "private": true,
   "dependencies": {
