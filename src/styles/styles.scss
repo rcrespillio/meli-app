@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+--yellow: #FFF159;
+}
+
+body{
+  font-family: "Proxima Nova",-apple-system,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif,sans-serif;
+}
+
+.nav-logo{
+  background-image: url(https://http2.mlstatic.com/ui/navigation/5.3.3/mercadolibre/logo__large_plus.png);
+  height: 34px;
+  top: 11px;
+  width: 134px;
+}
+
+.nav-search-input {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+  height: 25px;
+  margin-left: 30px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 50%;
+}
