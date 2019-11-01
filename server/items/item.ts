@@ -11,7 +11,6 @@ itemEndpoint.route('/').get((req, res) => {
     axios.get(`https://api.mercadolibre.com/items/${params.id}`),
     axios.get(`https://api.mercadolibre.com/items/${params.id}/description`),
   ]).then( ([dataResponse, descriptionResponse]) => {
-    console.log(dataResponse, descriptionResponse)
     const data = dataResponse.data;
     const response = {
       author: appAuthor,
@@ -23,14 +22,14 @@ itemEndpoint.route('/').get((req, res) => {
           amount: data.price,
           decimals: 2,
         },
-        picture: data.pictures[0],
+        picture: data.pictures[0].url,
         condition: data.attributes.find( attr => attr.id === "ITEM_CONDITION").value_name,
         free_shipping: data.shipping.free_shipping,
         sold_quantity: data.sold_quantity,
-        description: String
+        description: descriptionResponse.data.plain_text
       }
     }
-    res.json(descriptionResponse);
+    res.json(response);
   }).catch( ({error, statusCode }) => {
     res.status(statusCode).json(error);
   })

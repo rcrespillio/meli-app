@@ -12,7 +12,9 @@
     "serve:ssr": "node dist/server",
     "buildnserve": "npm run build:ssr && npm run serve:ssr",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run mercado-libre-app:server:production --bundleDependencies all"
+    "build:client-and-server-bundles": "ng build --prod && ng run mercado-libre-app:server:production --bundleDependencies all",
+    "live-build-server": "tsc -w -p server.ts --outDir servdist",
+    "serve-server": "npm run build && cp -r dist servdist/ &&ts-node-dev --fast --respawn servdist/server"
   },
   "private": true,
   "dependencies": {
@@ -39,9 +41,9 @@
     "@angular/cli": "~8.3.5",
     "@angular/compiler-cli": "~8.2.7",
     "@angular/language-service": "~8.2.7",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -53,6 +55,7 @@
     "protractor": "~5.4.0",
     "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
+    "ts-node-dev": "^1.0.0-pre.43",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
     "webpack-cli": "^3.1.0"
