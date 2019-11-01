@@ -31,7 +31,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
       this.productsService.getProductsList(query).subscribe(
         (data: ProductsList) => {
           this.products = data.items;
-          this.breadcrumb = data.categories.join('   >   ');
+          this.breadcrumb = data.categories.join(' > ');
         },
         (error) => {
 

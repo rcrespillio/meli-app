@@ -5,7 +5,7 @@
       <div class="product" *ngFor="let product of products">
         <img [src]="product.picture" class="clickable" (click)="goToProduct(product.id)">
         <div class="details">
-          <div class="price">{{product.price.amount | currency}}</div>
+          <div class="price">${{product.price.amount | number:'1.0-2':'es-AR'}}</div>
           <div class="title clickable" (click)="goToProduct(product.id)">{{product.title}}</div>
         </div>
       </div>

@@ -2,13 +2,13 @@
   <div class="breadcrumb">{{breadcrumb}}</div>
   <div class="white-container">
     <div class="product-container">
-      <div class="product">
-        <div class="top-information" *ngIf="product">
+      <div class="product" *ngIf="product">
+        <div class="top-information">
           <img [src]="product.picture">
           <div class="top-details">
             <span class="condition">{{product.condition}}</span>
             <h1 class="prd-title">{{product.title}}</h1>
-            <div class="price">{{product.price.amount | currency}}</div>
+            <div class="price">${{product.price.amount | number:'1.0-2':'es-AR'}}</div>
             <button class="buy-btn"><span>Comprar ahora</span></button>
           </div>
         </div>

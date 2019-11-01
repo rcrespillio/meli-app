@@ -19,6 +19,7 @@ export interface Product {
     amount: 32999;
     decimals: 2
   };
+  categories?: string[];
   picture: string;
   condition: string;
   free_shipping: boolean;

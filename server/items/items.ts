@@ -1,6 +1,8 @@
 import * as express from 'express';
 import axios from 'axios';
 import { appAuthor } from '../resources/author';
+import { recursiveCategoriesExtraction } from './helpers';
+import fixedEndpoints from './../fixedEndpoints';
 
 
 const itemsEndpoint = express();
@@ -43,13 +45,5 @@ itemsEndpoint.get('/', (req, res) => {
 
 
 
-function recursiveCategoriesExtraction(categoryFilterItem){
-  if(categoryFilterItem){
-    const nextArray = categoryFilterItem.path_from_root || [];
-    return [categoryFilterItem.name, ...recursiveCategoriesExtraction(nextArray[0])]
-  }else{
-    return [];
-  }
-}
 
 export default itemsEndpoint;
