@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { SearchHeaderComponent } from './search-header/search-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const exportedComponents = [ SearchHeaderComponent ];
 
@@ -9,7 +11,9 @@ const exportedComponents = [ SearchHeaderComponent ];
     ...exportedComponents
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     ...exportedComponents

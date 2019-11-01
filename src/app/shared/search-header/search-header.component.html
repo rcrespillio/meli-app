@@ -1,5 +1,16 @@
 <div class="search-header">
   <div class="nav-logo"></div>
-  <input type="text" class="nav-search-input" aria-label="Ingresá lo que quieras encontrar" placeholder="Nunca dejes de buscar" maxlength="120" autofocus="" autocapitalize="off" autocorrect="off" spellcheck="false" autocomplete="off">
-  <div class="search-icon"></div>
+  <input
+    type="text"
+    class="nav-search-input"
+    [(ngModel)]="searchQuery"
+    aria-label="Ingresá lo que quieras encontrar"
+    placeholder="Nunca dejes de buscar"
+    maxlength="120"
+    autofocus=""
+    autocapitalize="off"
+    autocorrect="off"
+    spellcheck="false"
+    autocomplete="off">
+  <div class="search-icon" (click)="updateSearchParams()"></div>
 </div>

@@ -7,7 +7,8 @@ const itemsEndpoint = express();
 
 itemsEndpoint.get('/', (req, res) => {
   const { query = {} } = req;
-  if(!query.search){
+  console.log(query);
+  if(!query.q){
     res.json({
       author: appAuthor,
       categories: [],
@@ -15,7 +16,7 @@ itemsEndpoint.get('/', (req, res) => {
     })
     return;
   }
-  axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query.search}`).then( ({ data }) => {
+  axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query.q}`).then( ({ data }) => {
     const categoryFilter = data.filters.find( ({id}) => id === 'category') || { values: [] };
     const categories = recursiveCategoriesExtraction(categoryFilter.values[0]);
     const response = {

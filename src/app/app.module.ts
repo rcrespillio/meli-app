@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchViewModule } from './views/search-view/search-view.module';
 import { SharedModule } from './shared/shared.module';
+import { ResultsModule } from './views/results/results.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,8 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    SearchViewModule,
-    SharedModule
+    SharedModule,
+    ResultsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
