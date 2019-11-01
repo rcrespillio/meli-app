@@ -7,7 +7,6 @@ const itemsEndpoint = express();
 
 itemsEndpoint.get('/', (req, res) => {
   const { query = {} } = req;
-  console.log(query);
   if(!query.q){
     res.json({
       author: appAuthor,

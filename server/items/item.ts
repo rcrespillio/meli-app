@@ -6,7 +6,6 @@ const itemEndpoint = express.Router({ mergeParams: true });
 
 itemEndpoint.route('/').get((req, res) => {
   const { params = {} } = req;
-  console.log(params)
   Promise.all([
     axios.get(`https://api.mercadolibre.com/items/${params.id}`),
     axios.get(`https://api.mercadolibre.com/items/${params.id}/description`),

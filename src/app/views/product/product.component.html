@@ -1,0 +1,24 @@
+<div class="main-container">
+  <div class="breadcrumb">{{breadcrumb}}</div>
+  <div class="white-container">
+    <div class="product-container">
+      <div class="product">
+        <div class="top-information" *ngIf="product">
+          <img [src]="product.picture">
+          <div class="top-details">
+            <span class="condition">{{product.condition}}</span>
+            <h1 class="prd-title">{{product.title}}</h1>
+            <div class="price">{{product.price.amount | currency}}</div>
+            <button class="buy-btn"><span>Comprar ahora</span></button>
+          </div>
+        </div>
+        <div class="product-description">
+          <h2 class="product-description-title">Descripción del producto</h2>
+          <div class="product-test">{{product.description}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

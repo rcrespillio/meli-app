@@ -1,0 +1,31 @@
+:host{
+  width: 100%;
+}
+
+.results-container{
+  padding: 5px;
+}
+
+.product{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  border-bottom: 1px solid #ebebeb;
+  img{
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+  }
+  .details{
+    margin-left: 10px;
+    padding: 20px 0;
+
+    .price{
+      color: #333;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .title{
+      margin-top: 10px;
+    }
+  }
+}

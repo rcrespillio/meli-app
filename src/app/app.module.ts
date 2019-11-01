@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ResultsModule } from './views/results/results.module';
+import { ProductModule } from './views/product/product.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ResultsModule } from './views/results/results.module';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     SharedModule,
-    ResultsModule
+    ResultsModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

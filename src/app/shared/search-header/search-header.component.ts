@@ -13,6 +13,12 @@ export class SearchHeaderComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.subscriptions = [
+      ...this.subscriptions,
+      this.activatedRoute.queryParams.subscribe(({ search = '' }) => {
+        this.searchQuery = search;
+      })
+    ]
   }
 
   ngOnDestroy(){

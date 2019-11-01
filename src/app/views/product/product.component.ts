@@ -2,36 +2,36 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/shared/products.service';
-import ProductsList, { Product } from 'src/app/shared/models/productsList';
+import { Product, ProductList } from 'src/app/shared/models/productsList';
 
 @Component({
-  selector: 'app-results',
-  templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class ResultsComponent implements OnInit, OnDestroy {
+export class ProductComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
-  products: Product[];
+  product: Product;
   breadcrumb = '';
   constructor(private activatedRoute: ActivatedRoute, private productsService: ProductsService, private router: Router) { }
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(({ search = '' }) => {
-      this.searchProducts(search);
-    });
+    const id = this.activatedRoute.snapshot.paramMap.get("id");
+    if(id){
+      this.getProduct(id);
+    }
   }
 
   ngOnDestroy(){
     this.subscriptions.forEach( sub => sub.unsubscribe());
   }
 
-  searchProducts( query: string ){
+  getProduct(id: string){
     this.subscriptions = [
       ...this.subscriptions,
-      this.productsService.getProductsList(query).subscribe(
-        (data: ProductsList) => {
-          this.products = data.items;
-          this.breadcrumb = data.categories.join('   >   ');
+      this.productsService.getProduct(id).subscribe(
+        (data: ProductList) => {
+          this.product = data.item;
         },
         (error) => {
 
