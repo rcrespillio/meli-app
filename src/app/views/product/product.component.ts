@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private readonly meta: MetaService) {
     const data = this.activatedRoute.snapshot.data['product'];
     this.setProduct(data);
-    //this.meta.setTitle(data.item.title)
+    this.meta.setTitle(data.item.title)
   }
 
   ngOnInit() {

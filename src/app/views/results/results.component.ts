@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/shared/products.service';
 import ProductsList, { Product } from 'src/app/shared/models/productsList';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-results',
@@ -13,9 +14,10 @@ export class ResultsComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   products: Product[];
   breadcrumb = '';
-  constructor(private activatedRoute: ActivatedRoute, private productsService: ProductsService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private productsService: ProductsService, private router: Router, private readonly meta: MetaService) { }
 
   ngOnInit() {
+    this.meta.setTitle('MercadoLibre')
     this.activatedRoute.queryParams.subscribe(({ search = '' }) => {
       this.searchProducts(search);
     });

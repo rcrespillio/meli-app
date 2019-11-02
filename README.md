@@ -1,27 +1,47 @@
-# MercadoLibreApp
+# Test Práctico - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.5.
+Aplicación que consta de tres componentes principales: una caja de búsqueda, la visualización de resultados, y la descripción del detalle del producto.
 
-## Development server
+Realizada con Angular Universal y backend en Node.js
+.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Instalación
 
-## Code scaffolding
+1 - Clonar el repositorio
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+git clone https://github.com/rcrespillio/meli-app
+```
+2 - Entrar en la carpeta del proyecto e instalar las dependencias
 
-## Build
+```bash
+cd meli-app && npm install
+```
+build:client-and-server-bundles
+## Correr el proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Ejecutar los siguientes comandos levantar la aplicación en modo desarrollo
 
-## Running unit tests
+```bash
+npm start
+```
+```bash
+npm run start:server
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecutar los siguientes comandos levantar la aplicación en modo producción
 
-## Running end-to-end tests
+```bash
+npm run buildnserve
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Hacer un build del proyecto
 
-## Further help
+Ejecutar los siguientes comandos para hacer un build de prod del proyecto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+npm run build:client-and-server-bundles
+```
+
+## Licencia
+[MIT](https://choosealicense.com/licenses/mit/)

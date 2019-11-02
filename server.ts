@@ -14,6 +14,7 @@
  * from your application's main.server.ts file, as seen below with the
  * import for `ngExpressEngine`.
  */
+import * as cors from 'cors';
 
 import 'zone.js/dist/zone-node';
 
@@ -28,6 +29,8 @@ const serverOnly = myArgs.includes('serverOnly');
 
 // Express server
 const app = express();
+
+app.use(cors())
 
 const PORT = process.env.PORT || 4000;
 
