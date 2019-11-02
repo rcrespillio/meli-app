@@ -14,7 +14,6 @@ itemEndpoint.route('/').get((req, res) => {
     return axios.get(`https://api.mercadolibre.com/categories/${dataResponse.data.category_id}`).then( categoriesResponse => ([dataResponse, descriptionResponse, categoriesResponse]) )
   })
   .then( ([dataResponse, descriptionResponse, categoriesResponse]) => {
-    console.log(categoriesResponse)
     const data = dataResponse.data;
     const categories = recursiveCategoriesExtraction(categoriesResponse.data);
     const response = {

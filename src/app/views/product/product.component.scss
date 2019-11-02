@@ -13,10 +13,13 @@
     padding-right: 40px;
   }
   img{
-    width: 100%;
+    width: auto;
     padding: 0 40px;
+    max-height: 400px;
     margin: 20px 0;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
   .prd-title{
     color: rgba(0,0,0,.8);

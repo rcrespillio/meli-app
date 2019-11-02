@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from 'src/app/shared/products.service';
 import { Product, ProductList } from 'src/app/shared/models/productsList';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-product',
@@ -13,11 +13,13 @@ export class ProductComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   product: Product;
   breadcrumb = '';
-  constructor(private activatedRoute: ActivatedRoute, private productsService: ProductsService, private router: Router) { }
-
-  ngOnInit() {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private readonly meta: MetaService) {
     const data = this.activatedRoute.snapshot.data['product'];
     this.setProduct(data);
+    //this.meta.setTitle(data.item.title)
+  }
+
+  ngOnInit() {
   }
 
   ngOnDestroy(){
@@ -28,9 +30,4 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.product = data.item;
     this.breadcrumb = data.item.categories.join(' > ');
   }
-
-  goToProduct(id: string){
-    this.router.navigate([`/items/${id}`]);
-  }
-
 }

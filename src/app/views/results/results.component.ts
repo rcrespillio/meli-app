@@ -41,7 +41,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   }
 
   goToProduct(id: string){
-    this.router.navigate([`/items/${id}`]);
+    this.router.navigate([`/items/${id}`], { queryParamsHandling: 'merge'});
   }
 
 }
